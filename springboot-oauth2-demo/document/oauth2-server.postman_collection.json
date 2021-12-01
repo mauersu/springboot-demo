@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "124aed65-03fd-4747-9522-1c305564cbc3",
+		"name": "oauth2-server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth-server:密码模式获取令牌",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"description": "客户端凭证，值的格式为Basic空格 + client_id:client_secret经过Base64加密后的值",
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic dGVzdDoxMjM0NTY="
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8181/oauth/token?grant_type=password&username=admin&password=111111",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"description": "认证类型，password密码模式"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"description": "用户名 mrbird:213123123:all"
+						},
+						{
+							"key": "password",
+							"value": "111111",
+							"description": "密码"
+						},
+						{
+							"key": "key",
+							"value": "1234",
+							"description": "代表每个验证码的唯一key",
+							"disabled": true
+						},
+						{
+							"key": "code",
+							"value": "7436",
+							"description": "验证码值（验证码的值可以通过浏览器访问http://localhost:8101/captcha?key=1234获取）",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auth-server:user",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbiIsInNjb3BlIjpbImFsbCJdLCJleHAiOjE2MzgzNDY1NTYsImF1dGhvcml0aWVzIjpbImRlbW86dGVzdCJdLCJqdGkiOiIwYTQ3NTk2MC1iMmZhLTQ5NTEtODhjYy02MjNlM2Q0YmRiYTEiLCJjbGllbnRfaWQiOiJ0ZXN0IiwidXNlcm5hbWUiOiJhZG1pbiJ9.oTgca4y-XonH3szqKHELPLnbYfTy30Ta4uJrKj4Icqo",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8181/user",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auth-server:provider",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbiIsInNjb3BlIjpbImFsbCJdLCJleHAiOjE2MzgzNDY1NTYsImF1dGhvcml0aWVzIjpbImRlbW86dGVzdCJdLCJqdGkiOiIwYTQ3NTk2MC1iMmZhLTQ5NTEtODhjYy02MjNlM2Q0YmRiYTEiLCJjbGllbnRfaWQiOiJ0ZXN0IiwidXNlcm5hbWUiOiJhZG1pbiJ9.oTgca4y-XonH3szqKHELPLnbYfTy30Ta4uJrKj4Icqo",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8181/provider",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"provider"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resource:testfeign",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbiIsInNjb3BlIjpbImFsbCJdLCJleHAiOjE2MzgzNDY1NTYsImF1dGhvcml0aWVzIjpbImRlbW86dGVzdCJdLCJqdGkiOiIwYTQ3NTk2MC1iMmZhLTQ5NTEtODhjYy02MjNlM2Q0YmRiYTEiLCJjbGllbnRfaWQiOiJ0ZXN0IiwidXNlcm5hbWUiOiJhZG1pbiJ9.oTgca4y-XonH3szqKHELPLnbYfTy30Ta4uJrKj4Icqo",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8282/resource/testfeign",
+					"host": [
+						"localhost"
+					],
+					"port": "8282",
+					"path": [
+						"resource",
+						"testfeign"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resource:testAuth",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbiIsInNjb3BlIjpbImFsbCJdLCJleHAiOjE2MzgzNDY1NTYsImF1dGhvcml0aWVzIjpbImRlbW86dGVzdCJdLCJqdGkiOiIwYTQ3NTk2MC1iMmZhLTQ5NTEtODhjYy02MjNlM2Q0YmRiYTEiLCJjbGllbnRfaWQiOiJ0ZXN0IiwidXNlcm5hbWUiOiJhZG1pbiJ9.oTgca4y-XonH3szqKHELPLnbYfTy30Ta4uJrKj4Icqo",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8282/resource/testAuth",
+					"host": [
+						"localhost"
+					],
+					"port": "8282",
+					"path": [
+						"resource",
+						"testAuth"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

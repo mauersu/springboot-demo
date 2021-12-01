@@ -1,0 +1,70 @@
+server:
+  port: 8181
+spring:
+  application:
+    name: oauth2-server
+  redis:
+    database: 1
+    host: localhost
+    port: 6379
+    password:
+    lettuce:
+      pool:
+        min-idle: 8
+        max-idle: 500
+        max-active: 2000
+        max-wait: 10000
+    timeout: 5000
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/oauth_demo?useUnicode=true&characterEncoding=UTF8&serverTimezone=GMT%2b8
+    username: root
+    password: 111111
+  cloud:
+    nacos:
+      config:
+        serverAddr: localhost:8848
+        prefix: alibabacloud-demo
+        file-extension: yaml
+        namespace: public
+        group: DEFAULT_GROUP
+      discovery:
+        serverAddr: localhost:8848
+        namespace: public
+        group: DEFAULT_GROUP
+  thymeleaf:
+    cache: false
+
+demo:
+  cloud:
+    security:
+      enable: true
+      anon-uris: /actuator/**
+      enableJwt: true
+      jwtAccessKey: oauthdemo
+
+mybatis :
+  type-aliases-package : com.mauersu.demo.oauth2.server.entity
+  mapper-locations : classpath*:mapper/*.xml
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+# Logger Config
+logging:
+  level:
+    root: debug
+    com.mauersu.demo.mybatis: debug
+    com.alibaba.nacos: ERROR
+    com.alibaba.cloud.nacos: ERROR
+    com.alibaba.cloud.nacos.client: INFO
+    sun: ERROR
+    org.springframework: debug
+    org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping: trace
+    org.apache: INFO

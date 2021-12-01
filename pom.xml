@@ -8,7 +8,7 @@
         <version>2.5.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.mauersu.demo.mybatis.demo.mybatis.demo</groupId>
+    <groupId>com.mauersu.demo</groupId>
     <artifactId>parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>springboot demo</name>
@@ -21,6 +21,8 @@
 	<modules>
 		<module>springboot-mybatis-demo</module>
         <module>spring-statemachine-demo</module>
+        <module>springboot-alibabacloud-demo</module>
+        <module>springboot-oauth2-demo</module>
 	</modules>
 
 </project>

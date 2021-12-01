@@ -1,0 +1,39 @@
+server:
+  port: 8282
+spring:
+  application:
+    name: oauth2-resource
+  cloud:
+    nacos:
+      config:
+        serverAddr: localhost:8848
+        prefix: alibabacloud-demo
+        file-extension: yaml
+        namespace: public
+        group: DEFAULT_GROUP
+      discovery:
+        serverAddr: localhost:8848
+        namespace: public
+        group: DEFAULT_GROUP
+  thymeleaf:
+    cache: false
+
+
+# Logger Config
+logging:
+  level:
+    root: debug
+    com.mauersu.demo.mybatis: debug
+    com.alibaba.nacos: ERROR
+    com.alibaba.cloud.nacos: ERROR
+    com.alibaba.cloud.nacos.client: INFO
+    sun: ERROR
+    org.springframework: debug
+    org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping: trace
+    org.apache: INFO
+
+security:
+  oauth2:
+    resource:
+      id: ${spring.application.name}
+      user-info-uri: http://localhost:8181/user

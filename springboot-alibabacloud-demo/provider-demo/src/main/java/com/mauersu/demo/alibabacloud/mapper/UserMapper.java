@@ -1,6 +1,6 @@
-package com.mauersu.demo.mybatis.mapper;
+package com.mauersu.demo.alibabacloud.mapper;
 
-import com.mauersu.demo.mybatis.entity.User;
+import com.mauersu.demo.alibabacloud.entity.User;
 import org.apache.ibatis.annotations.Param;
 
 public interface UserMapper  {
